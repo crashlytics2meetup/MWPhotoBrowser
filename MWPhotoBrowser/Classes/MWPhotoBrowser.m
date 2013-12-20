@@ -40,6 +40,13 @@
 	return self;
 }
 
+-(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+	if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
+        [self _initialisation];
+	}
+	return self;
+}
+
 - (id)initWithCoder:(NSCoder *)decoder {
 	if ((self = [super initWithCoder:decoder])) {
         [self _initialisation];
@@ -1392,10 +1399,10 @@
         if ([self numberOfPhotos] > 0 && [photo underlyingImage]) {
             
             // If they have defined a delegate method then just message them
-            if ([self.delegate respondsToSelector:@selector(photoBrowser:actionButtonPressedForPhotoAtIndex:)]) {
+            if ([self.delegate respondsToSelector:@selector(photoBrowser:actionButtonPressedForPhotoAtIndex:sender:)]) {
                 
                 // Let delegate handle things
-                [self.delegate photoBrowser:self actionButtonPressedForPhotoAtIndex:_currentPageIndex];
+                [self.delegate photoBrowser:self actionButtonPressedForPhotoAtIndex:_currentPageIndex sender:sender];
                 
             } else {
                 
