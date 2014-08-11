@@ -91,7 +91,7 @@
     // Get scroll position to have the current photo on screen
     if (_browser.numberOfPhotos > 0) {
         NSIndexPath *currentPhotoIndexPath = [NSIndexPath indexPathForItem:_browser.currentIndex inSection:0];
-        [self.collectionView scrollToItemAtIndexPath:currentPhotoIndexPath atScrollPosition:PSTCollectionViewScrollPositionNone animated:NO];
+        [self.collectionView scrollToItemAtIndexPath:currentPhotoIndexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
     }
     CGPoint offsetToShowCurrent = self.collectionView.contentOffset;
     
