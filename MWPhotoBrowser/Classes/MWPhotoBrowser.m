@@ -259,8 +259,10 @@
     UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     NSMutableArray *items = [[NSMutableArray alloc] init];
 
-    // Left button - Grid
-    if (_enableGrid) {
+    // Left button - Grid or custom button
+    if (_bottomLeftBarButtonItem) {
+        [items addObject:_bottomLeftBarButtonItem];
+    } else if (_enableGrid) {
         hasItems = YES;
         NSString *buttonName = @"UIBarButtonItemGrid";
         if (SYSTEM_VERSION_LESS_THAN(@"7")) buttonName = @"UIBarButtonItemGridiOS6";
